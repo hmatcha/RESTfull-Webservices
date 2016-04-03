@@ -1,0 +1,5 @@
+[{"firstName":"Harish","lastName":"Matcha","address":"3102 Parkton Dr","city":"Troy","state":"MI","zipCode":"48083","username":"hmatcha","password":"matcha113","bId":"1"}
+,{"firstName":"Venkat","lastName":"Hari","address":"3102 Parkton Dr","city":"Troy","state":"MI","zipCode":"48083","username":"vhari","password":"venkat113","bId":"2"},
+{"firstName":"Swapna","lastName":"Kalyanam","address":"3102 Parkton Dr","city":"Troy","state":"MI","zipCode":"48083","username":"skalyanam","password":"kalyanam113","bId":"3"},
+{"firstName":"Sundeep","lastName":"Nagumalli","address":"1066 Louise st","city":"Ypsilanti","state":"MI","zipCode":"48197","username":"nsundeep","password":"nagumalli113","bId":"4"},
+{"firstName":"Gnanesh","lastName":"Ponnada","address":"1066 Louise st","city":"Ypsilanti","state":"MI","zipCode":"48197","username":"gponnada","password":"ponnada113","bId":"5"}]

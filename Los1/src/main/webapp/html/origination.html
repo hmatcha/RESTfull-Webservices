@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Origination Module</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class='navbar navbar-default navbar-static-top'>
+		<!-- NavBar static top start -->
+		<div class='container'>
+			<!-- container start -->
+			<div class='navbar-header'>
+				<!-- nav header start -->
+				<a href='home.html' class='navbar-brand'>LOS</a>
+				<button type='button' class='navbar-toggle' data-toggle='collapse'
+					data-target='.navbar-collapse'>
+					<span class='sr-only'>Toggle Navigation</span> <span
+						class='icon-bar'></span> <span class='icon-bar'></span> <span
+						class='icon-bar'></span>
+				</button>
+
+
+			</div>
+			<!-- nav header stop -->
+			<ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
+				<li><a href="#" data-toggle='dropdown'>About Us<span
+						class='caret'></span></a>
+					<ul class='dropdown-menu'>
+						<li><a href='contactUs.html'>Contact Us</a></li>
+						<li><a href='about.html'>About</a></li>
+						<li class='divider'></li>
+						<li><a href='Blog.html'>Blog</a></li>
+						<li class='divider'></li>
+						<li><a href='http://www.facebook.com'>FaceBook</a></li>
+						<li><a href='http://www.twitter.com'>Twitter</a></li>
+					</ul></li>
+				<li><a href="#" data-toggle='dropdown'>Mortgage Loan<span
+						class='caret'></span></a>
+					<ul class='dropdown-menu'>
+						<li><a href='origination.html'>loan Origination</a></li>
+						<li class='divider'></li>
+						<li><a href='processing.html'>Processing</a></li>
+						<li class='divider'></li>
+						<li><a href='underWriting.html'>Under Writing</a></li>
+						<li class='divider'></li>
+						<li><a href='closing'>Closing</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<!-- container stop -->
+
+	</div>
+	<!-- navbar static top  stop -->
+	<form action="http://localhost:8081/Los1/saveBorrowers" method="post"
+		name="borrowerForm">
+		<div class='form-group well'>
+			<h2>1003 Form</h2>
+
+			<h3 style="text-align: center;">Borrower Information</h3>
+			FirstName = <input type="text" class="form-control" id='brwrFName'
+				name='brwrFirstName' /> LastName = <input type="text"
+				class="form-control" id='brwrLName' name=brwrLastName /> Address =
+			<input type="text" class="form-control" id='brwrAddress'
+				name=brwrAddress /> City = <input type="text" class="form-control"
+				id='brwrCity' name='brwrCity' /> State =<input type="text"
+				class="form-control" id='bState' name='brwrState' /> ZipCode = <input
+				type="text" class="form-control" id='bZip' name='brwrZip' />
+
+
+
+			<h3 style="text-align: center;">Co-Borrower Information</h3>
+			FirstName = <input type="text" class="form-control" id='cbFName'
+				name='cbrwrFirstName' /> LastName = <input type="text"
+				class="form-control" id='cbLName' name='cbrwrLastName' /> Address =
+			<input type="text" class="form-control" id='cbAddress'
+				name='cbrwrAddress' /> City = <input type="text"
+				class="form-control" id='cbCity' name='cbrwrCity' /> State = <input
+				type="text" class="form-control" id='cbState' name='cbrwrState' />
+			ZipCode = <input type="text" class="form-control" id='cbZip'
+				name='cbrwrZip' />
+
+
+			<!-- 			<h3 style="text-align: center;">Property Information</h3> -->
+			<!-- 			No Of Units = <input type="text" class="form-control" id='pUnits' /> -->
+			<!-- 			Year Built = <input type="text" class="form-control" id='pYear' /> -->
+			<!-- 			Address = <input type="text" class="form-control" id='pAddress' /> -->
+			<!-- 			City = <input type="text" class="form-control" id='pCity' /> State = -->
+			<!-- 			<input type="text" class="form-control" id='pState' /> ZipCode = <input -->
+			<!-- 				type="text" class="form-control" id='pZip' /> -->
+
+
+			<div style="text-align: center; padding: 25px">
+				<input type="submit" value="Submit" class='btn btn-primary'
+					id="borrowerSubmit" /> <input type="reset" value="Reset"
+					class='btn btn-default' />
+			</div>
+		</div>
+	</form>
+
+	<div class="footer navbar-static-bottom well">
+		<p style="text-align: center;">Copyright (c) 2016</p>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src='../js/bootstrap.js'></script>
+	<script src='../js/application.js'></script>
+</body>
+</html>
