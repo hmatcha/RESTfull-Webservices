@@ -14,13 +14,13 @@ $(document).ready(
 				
 				$.ajax({
 					type: 'POST',
-					url: 'http://localhost:8081/Los1/login',
+					url: 'http://localhost:8089/Los1/login',
 					data:loginJsonData,
 					 contentType: "application/json",
 					    dataType: 'json',
 					//
 					 success: function() {
-						 console.log("Was in Success Block");
+						 console.log("Was in login Success Block");
 						 window.location.href = "loans.html";
 					 }
 					 
@@ -44,9 +44,11 @@ $(document).ready(
 				console.log(borrowerJsonData);
 				$.ajax({
 					type: 'POST',
-					url: 'http://localhost:8081/Los1/saveBorrowers',
+					url: 'http://localhost:8089/Los1/saveBorrowers',
 					data:borrowerJsonData,
-					 success: function(borrowerJsonData) { alert('data: ' + borrowerJsonData); },
+					 success: function() {
+						 console.log("Was in borrowerSubmit Success Block");
+					 },
 					    contentType: "application/json",
 					    dataType: 'json'
 					
@@ -56,7 +58,7 @@ $(document).ready(
 				
 			});
 
-			$.getJSON('http://localhost:8081/Los1/loans', function(Data) {
+			$.getJSON('http://localhost:8089/Los1/loans', function(Data) {
 				allLoans = Data;
 				$.each(allLoans, function(index, loan) {
 
@@ -80,14 +82,20 @@ $(document).ready(
 				
 				$.ajax({
 					type: 'POST',
-					url: 'http://localhost:8081/Los1/signup',
+					url: 'http://localhost:8089/Los1/signup',
 					data:jsonData,
 				    contentType: "application/json",
-				    dataType: 'json'
+				    dataType: 'json',
+					sucess: function ()
+					{
+						console.log("In the success block of signUpButton Function");
+						window.location.href = "login.html";
+
+					}
+					
 					
 				});
-				window.location.href = "login.html";
-				return true;
+								return true;
 				
 				
 				

@@ -50,7 +50,7 @@ public class BrokerController {
 		Broker broker = service.retrieveBroker(username, password);
 		session.setAttribute("Broker", broker);
 
-		System.out.println("Broker 2 = " + broker.getbUserName() + "   " + broker.getbPassword());
+		System.out.println("Broker 2 = " + broker.getbFirstName() + "   " + broker.getbLastName());
 
 		if (broker.equals(null)) {
 			
@@ -62,13 +62,13 @@ public class BrokerController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signUpSave(@RequestBody Broker broker1) {
+	@ResponseBody
+	public void signUpSave(@RequestBody Broker broker1) {
 
 		service.insertBroker(broker1);
 
 		System.out.println("Broker from signup Post = " + broker1.getbFirstName());
 		System.out.println("Broker from signup Post = " + broker1.getbLastName());
-		return "redirect:/html/login.html";
 	}
 
 }

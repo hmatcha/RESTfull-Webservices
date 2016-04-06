@@ -1,21 +1,16 @@
 package com.los.java.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Broker")
-@SequenceGenerator(name="brokerIdGenerator", sequenceName="bId", allocationSize=1)
 @NamedQuery(name = "select all broker", query = "select c from Broker c")
 public class Broker {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="brokerIdGenerator")
 	private int bId;
 	private String bFirstName;
 	private String bLastName;

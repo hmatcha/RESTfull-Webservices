@@ -1,23 +1,18 @@
 package com.los.java.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Borrower")
-@SequenceGenerator(name="borrowerIdGenerator", sequenceName="brwrId", allocationSize=1)
 @NamedQuery(name = "select all borrowers", query = "select c from Borrower c")
 public class Borrower {
 
 	// Borrower Info
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="borrowerIdGenerator")
 	private int brwrId;
 	private String brwrFirstName;
 	private String brwrLastName;

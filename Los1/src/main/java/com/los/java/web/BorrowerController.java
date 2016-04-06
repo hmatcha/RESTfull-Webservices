@@ -27,9 +27,9 @@ List<Borrower> getBorrowersFromDataBase()
 }
 
 @RequestMapping(value="/saveBorrowers", method = RequestMethod.POST)
-public String saveBorrower(@RequestBody Borrower borrower)
+@ResponseBody
+public void saveBorrower(@RequestBody Borrower borrower)
 {
 	service.insertBorrowers(borrower);
-	return "redirect:/html/home.html";
 }
 }
