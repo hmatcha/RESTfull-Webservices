@@ -13,23 +13,21 @@ import com.los.java.domain.Borrower;
 import com.los.java.domain.BorrowerServiceImpl;
 
 @Controller
-public class BorrowerController 
-{
+public class BorrowerController {
 	@Autowired
 	private BorrowerServiceImpl service;
-	
-@RequestMapping("/borrower")
-@ResponseBody
-List<Borrower> getBorrowersFromDataBase()
-{
-	List<Borrower> borrowers = service.displayBorrowers();
-	return borrowers;
-}
 
-@RequestMapping(value="/saveBorrowers", method = RequestMethod.POST)
-@ResponseBody
-public void saveBorrower(@RequestBody Borrower borrower)
-{
-	service.insertBorrowers(borrower);
-}
+	@RequestMapping("/borrower")
+	@ResponseBody
+	List<Borrower> getBorrowersFromDataBase() {
+		List<Borrower> borrowers = service.displayBorrowers();
+		return borrowers;
+	}
+
+	@RequestMapping(value = "/saveBorrowers", method = RequestMethod.POST)
+	@ResponseBody
+	public void saveBorrower(@RequestBody Borrower borrower) {
+		service.insertBorrowers(borrower);
+		System.out.println("Save done");
+	}
 }

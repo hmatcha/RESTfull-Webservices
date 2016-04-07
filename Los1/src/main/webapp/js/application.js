@@ -1,10 +1,9 @@
 
-$(document).ready(
-		function() {
+$(document).ready(function() {
 			var allUsers = [];
 			var allLoans = [];
 
-
+			//code for behavior after clicking login button 
 			$('#submit').one('click',function() {
 				var loginJsonData = JSON.stringify($(document.loginForm).serializeObject());
 				console.log("After submit click "+loginJsonData);
@@ -14,51 +13,37 @@ $(document).ready(
 				
 				$.ajax({
 					type: 'POST',
-					url: 'http://localhost:8089/Los1/login',
+					url: '/Los1/login',
 					data:loginJsonData,
-					 contentType: "application/json",
-					    dataType: 'json',
-					//
-					 success: function() {
-						 console.log("Was in login Success Block");
-						 window.location.href = "loans.html";
-					 }
-					 
-					   
-					    	
-					
+					contentType: "application/json",
+				    dataType: 'json',
+					 }).done(function(data) {console.log(data);
+							window.location.href = "loans.html";
+						}).fail(function(status){console.log("got error"); });
 				});
 				
-				return false;
-//				if (exists(allUsers, userIDFromForm, pwdFromForm)) {
-					
-//				}
-
-//				else {
-//					alert('Invalid username or password');
-//				}
-			});
 			
+			//code for behavior after clicking login button 
 			$('#borrowerSubmit').click(function(){
 				var borrowerJsonData = JSON.stringify($(document.borrowerForm).serializeObject());
 				console.log(borrowerJsonData);
 				$.ajax({
 					type: 'POST',
-					url: 'http://localhost:8089/Los1/saveBorrowers',
+					url: '/Los1/saveBorrowers',
 					data:borrowerJsonData,
-					 success: function() {
-						 console.log("Was in borrowerSubmit Success Block");
-					 },
 					    contentType: "application/json",
 					    dataType: 'json'
+				}).done(function(data) {
+					console.log(data);
+					window.location.href = "login.html";
+					}).fail(function(status){ console.log("got error"); });
 					
 				});
-				return false;
 				
 				
-			});
-
-			$.getJSON('http://localhost:8089/Los1/loans', function(Data) {
+			//When loans document loads it would get json and display them
+		$(document).ready(function(){
+			$.getJSON('/Los1/loans', function(Data) {
 				allLoans = Data;
 				$.each(allLoans, function(index, loan) {
 
@@ -67,13 +52,11 @@ $(document).ready(
 									+ (loan.loanId) + "</a>" + "</td>"
 									+ "<td>" + (loan.brwrFname) + "</td>"
 									+ "<td>" + (loan.brwrLname) + "</td>"
-									+ "<td>" + (loan.brkrFname) + "</td>"
-									+ "<td>" + (loan.brkrLname) + "</td>" +
-									"<td>"+ (loan.processorName) + "</td>"+
+									+"<td>"+ (loan.processorName) + "</td>"+
 									"<td>"+ (loan.status) + "</td>" + "</tr>");
 
 				});
-			});
+			})});
 
 			$(document).one('click','#signUpButton',function(){
 				
@@ -82,24 +65,22 @@ $(document).ready(
 				
 				$.ajax({
 					type: 'POST',
-					url: 'http://localhost:8089/Los1/signup',
+					url: '/Los1/signup',
 					data:jsonData,
 				    contentType: "application/json",
-				    dataType: 'json',
-					sucess: function ()
-					{
-						console.log("In the success block of signUpButton Function");
-						window.location.href = "login.html";
+				    dataType: 'json'
+					
+										
+				}).done(function(data) {
+					console.log(data);
+					window.location.href = "login.html";
+				}).fail(function(status)
+						{
+					console.log("got error");
 
-					}
-					
-					
-				});
-								return true;
-				
-				
-				
+						});
 			});
+			
 			$(document).one(
 					'click',
 					'#0',
@@ -121,10 +102,7 @@ $(document).ready(
 												+ loanRecord.brwrLname + '</p>'
 												+ '<p>Processor Name = '
 												+ loanRecord.processorName
-												+ '</p>' + '<p> Borrower First Name = '
-												+ loanRecord.brkrFname + '</p>'
-												+'</p>' + '<p> Borrower Last Name = '
-												+ loanRecord.brkrLname + '</p>'+ '<p> Status = '
+												+ '<p> Status = '
 												+ loanRecord.status + '</p>');
 								loanNumexits = true;
 								
@@ -135,8 +113,7 @@ $(document).ready(
 					}));
 			
 			
-
-		}); // document.ready ends
+		});
 
 //function exists(allUsers, username, password) {
 //	var userExists = false;
@@ -150,6 +127,9 @@ $(document).ready(
 //
 //	return userExists;
 //};
+function ReloadPage() {
+	   location.reload();
+	};
 
 $.fn.serializeObject = function()
 {

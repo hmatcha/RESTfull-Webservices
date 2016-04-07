@@ -18,10 +18,6 @@ public class Loan {
 	private String brwrFname;
 	@Column(name="BRWRLASTNAME")
 	private String brwrLname;
-	@Column(name="BFIRSTNAME")
-	private String brkrFname; 
-	@Column(name="BLASTNAME")
-	private String brkrLname;
 	private String processorName;
 	private String status;
 	public Loan()
@@ -32,13 +28,11 @@ public class Loan {
 	
 
 
-	public Loan(int loanId, String brwrFname, String brwrLname, String brkrFname, String brkrLname,
+	public Loan(int loanId, String brwrFname, String brwrLname, 
 			String processorName, String status) {
 		this.loanId = loanId;
 		this.brwrFname = brwrFname;
 		this.brwrLname = brwrLname;
-		this.brkrFname = brkrFname;
-		this.brkrLname = brkrLname;
 		this.processorName = processorName;
 		this.status = status;
 	}
@@ -76,24 +70,6 @@ public class Loan {
 	}
 
 
-	public String getBrkrFname() {
-		return brkrFname;
-	}
-
-
-	public void setBrkrFname(String brkrFname) {
-		this.brkrFname = brkrFname;
-	}
-
-
-	public String getBrkrLname() {
-		return brkrLname;
-	}
-
-
-	public void setBrkrLname(String brkrLname) {
-		this.brkrLname = brkrLname;
-	}
 
 
 
